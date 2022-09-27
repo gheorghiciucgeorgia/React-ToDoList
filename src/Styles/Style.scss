@@ -1,0 +1,72 @@
+//color palette
+$salmon: #EC7272;
+$darker-salmon:#f22a2a;
+$orange: #F7A76C;
+$darker-orange:#f68434;
+$dirty-yellow: #E0D98C;
+$lime: #C3FF99;
+$darker-lime:#7ed242;
+$font: 'Montserrat', sans-serif;
+
+body {
+    background-color: $dirty-yellow;
+    display: flex;
+    justify-content: center;
+    font-family: $font;
+}
+
+.list {
+    margin-top: 50px;
+    width: 100%;
+    font-weight: 500;
+
+    .input-txt {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .text-box {
+            outline: none;
+            background-color: $orange;
+            border: 4px solid $darker-orange;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 5px;
+            font-weight: 500;
+            font-family: $font;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .addbtn,
+        .closebtn {
+            margin-bottom: 10px;
+            border:2px solid;
+            border-radius: 25px;
+            padding:10px;
+            margin:5px 60px;
+            font-family: $font;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .addbtn{
+            background-color: $lime;
+            border:4px solid $darker-lime;
+        }
+        .closebtn{
+            background-color: $salmon;
+            border:4px solid $darker-salmon;
+        }
+    }
+    .elements{
+        background-color: white;
+        border:3px solid white;
+        border-radius:10px;
+        margin:10px 0;
+        padding:10px;
+    }
+}

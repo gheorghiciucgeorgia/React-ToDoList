@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
+import './Styles/Style.scss';
+
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
@@ -31,7 +33,7 @@ function App() {
     //getting the todos we actually want to modify
     //finding the todo that has the same id
     const todo = newTodos.find(todo => todo.id === id)
-    
+
     //and when we click the toggle we will change the state of the complete
     todo.complete = !todo.complete
     //setting the todos to the newTodos that had been changed
@@ -48,8 +50,8 @@ function App() {
   }
 
   //clearing the Done Todos
-  function handleClearTodo(){
-    const newTodos=todos.filter(todos => !todos.complete)
+  function handleClearTodo() {
+    const newTodos = todos.filter(todos => !todos.complete)
     setTodos(newTodos)
   }
 
@@ -57,11 +59,20 @@ function App() {
     // This "<>" and </> is called a fragment and can
     // contain more html elements
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
-      <input ref={todoNameRef} type="text" />
-      <button onClick={handleAddTodo}>Add ToDo</button>
-      <button onClick={handleClearTodo}>Clear done ones</button>
-      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+      <div className="list">
+        <div className="input-txt">
+          <label for="todoName"><span>What do you want to add to the List?</span></label>
+          <input className="text-box" ref={todoNameRef} type="text" id="todoName" />
+        </div>
+        <div className="buttons">
+          <button className="addbtn" onClick={handleAddTodo}>Add Element</button>
+          <button className="closebtn" onClick={handleClearTodo}>Clear Done Ones</button>
+        </div>
+        <div className='elements'>
+          <TodoList todos={todos} toggleTodo={toggleTodo} />
+        </div>
+        <div className='length'>{todos.filter(todo => !todo.complete).length} left to do</div>
+      </div>
     </>
 
   );
